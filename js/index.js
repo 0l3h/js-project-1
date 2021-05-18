@@ -34,36 +34,34 @@ num -= 1;
 // ********************prompt()*************************
 
 // Квадрат чисел
-let userNumber = prompt("Введите число");
+const userNumber = Number(prompt("Введите число"));
 alert("Ваше число в квадрате: " + userNumber**2);
 
 // Среднее арифметическое
-let userNumber_1 = prompt("Введите первое число");
-let userNumber_2 = prompt("Введите второе число");
-let averageMeanNumber = userNumber_1 / 2 + userNumber_2 / 2;
-alert("Среднее арифметическое: " + averageMeanNumber);
+const userNumberFirst = Number(prompt("Введите первое число"));
+const userNumberSecond = Number(prompt("Введите второе число"));
+alert("Среднее арифметическое: " + (userNumberFirst + userNumberSecond) / 2);
 
 // Минуты в секунды
-userNumber = prompt("Введите количество минут");
-alert("Кол-во минут в секундах: " + userNumber*60);
+const numberOfMinutes = Number(prompt("Введите количество минут"));
+alert("Кол-во минут в секундах: " + numberOfMinutes*60);
 
 // Приветствие
-let greeting = "Hello, ";
-const userName = prompt("Введите ваше имя");
-greeting += userName + "!";
+const userName = String(prompt("Введите ваше имя"));
+const greeting = "Hello, " + userName + "!";
 alert(greeting);
 
 // ******************Условные операторы*******************
 
-userNumber = prompt("Введите число");
-if(userNumber === 10) {
+const userNumber2 = Number(prompt("Введите число"));
+if(userNumber2 === 10) {
     alert("Верно");
 }
 else {
     alert("Неверно");
 }
 
-let test = true;
+const test = true;
 if(test === true) {
     alert("Верно");
 }
@@ -79,90 +77,112 @@ else {
 }
 
 // Скидка на товар
-let purchasePrice = prompt("Цена товара");
-if(800 > purchasePrice && purchasePrice > 500) {
+let purchasePrice = Number(prompt("Цена товара"));
+if(800 >= purchasePrice && purchasePrice > 500) {
     purchasePrice -= purchasePrice * 0.03;
-    alert("Стоимость покупки с учетом скидки " + purchasePrice)
+    alert("Стоимость покупки с учетом скидки " + purchasePrice);
 }
 if (purchasePrice > 800) {
     purchasePrice -= purchasePrice * 0.05;
-    alert("Стоимость покупки с учетом скидки " + purchasePrice) 
+    alert("Стоимость покупки с учетом скидки " + purchasePrice); 
+}
+else {
+    alert("Скидка не учитывается");
 }
 console.groupEnd();
 
 // *************************Циклы************************
 
 console.group("Числа от 25 до 0");
-let number = 25;
-for (; number >= 0; number--){
+// Цикл for
+for (let number = 25; number >= 0; number--){
     console.log(number);
 }
 
-number = 25;
+// Цикл while
+let number = 25;
 while(number >= 0) {
     console.log(number);
     number--;
 }
 
+// Цикл do-while
 number = 25;
 do {
     console.log(number);
     number--;    
-} while(number >= 0)
+} while(number >= 0);
 console.groupEnd();
 
 console.group("Числа от 10 до 50 кратные 5");
-number = 10;
-for (; number <= 50; number++){
-    if(number % 5 === 0) {
-        console.log(number);
-    }
+// Цикл for
+for (number = 10; number <= 50; number += 5) {
+    console.log(number);
 }
 
+// Цикл while
 number = 10;
 while(number <= 50) {
-    if(number % 5 == 0) {
-        console.log(number);
-    }
-    number++;
+    console.log(number);
+    number += 5;
 }
 
+// Цикл do-while
 number = 10;
 do {
-    if(number % 5 == 0) {
-        console.log(number);
-    }
-    number++;
-} while(number <= 50)
+    console.log(number);
+    number += 5;
+} while(number <= 50);
 console.groupEnd();
 
 console.group("Сумма чисел от 1 до 100");
+
+// Цикл for
 number = 0;
-let i = 0;
-for (; i <= 100; i++){
-    number = number + i; 
+for (let i = 0; i <= 100; i++){
+    number += i; 
 }
 console.log(number);
 
+// Цикл while
 number = 0;
-i = 0;
+let i = 0;
 while(i <= 100) {
-    number = number + i;
+    number += i;
     i++;
 }
 console.log(number);
 
+// Цикл do-while
 number = 0;
 i = 0;
 do {
-    number = number + i;
+    number += i;
     i++;
-} while(i <= 100)
+} while(i <= 100);
 console.log(number);
 console.groupEnd();
 
-let userResult = prompt("Решите пример 2 + 2 * 2:");
-while(userResult != 6) {
+// Цикл for
+let userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
+for (;userResult !== 6;) {
     alert("Попробуйте снова");
-    userResult = prompt("Решите пример 2 + 2 * 2:");
+    userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
 }
+alert("Верно");
+
+// Цикл while
+userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
+while(userResult !== 6) {
+    alert("Попробуйте снова");
+    userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
+}
+alert("Верно");
+
+// Цикл do-while
+userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
+do {
+    alert("Попробуйте снова");
+    userResult = Number(prompt("Решите пример 2 + 2 * 2:"));
+} while (userResult !== 6);
+alert("Верно");
